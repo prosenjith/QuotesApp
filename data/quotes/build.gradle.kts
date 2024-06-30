@@ -18,8 +18,23 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.gson.converter)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.okhttp)
+
+    // Unit testing dependencies
+    testImplementation(libs.junitJupiterApi)
+    testRuntimeOnly(libs.junitJupiterEngine)
+    testImplementation(libs.coroutinesTest)
+    testImplementation(libs.mockitoCore)
+    testImplementation(libs.mockitoKotlin)
+
+    // Optional: AssertJ for fluent assertions
+    testImplementation(libs.assertj)
 }
 
 kapt {
     correctErrorTypes = true
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
